@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X, Sparkles, Download } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -90,16 +91,34 @@ export const Navbar = () => {
             ))}
           </div>
 
-          {/* Contact Button */}
-          <motion.a 
-            href="#contact" 
-            className="hidden md:flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:shadow-lg hover:shadow-amber/20 transition-all duration-300 group overflow-hidden relative"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="absolute inset-0 bg-gradient-to-r from-amber to-amber-light opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <span className="relative">Contact</span>
-          </motion.a>
+          {/* Right Side Actions */}
+          <div className="hidden md:flex items-center gap-3">
+            {/* Resume Download */}
+            <motion.a 
+              href="/resume.pdf"
+              download="Kashish_Pandey_Resume.pdf"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-amber/30 text-amber hover:bg-amber/10 text-sm font-medium transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Download className="w-4 h-4" />
+              Resume
+            </motion.a>
+
+            {/* Theme Toggle */}
+            <ThemeToggle />
+
+            {/* Contact Button */}
+            <motion.a 
+              href="#contact" 
+              className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:shadow-lg hover:shadow-amber/20 transition-all duration-300 group overflow-hidden relative"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="absolute inset-0 bg-gradient-to-r from-amber to-amber-light opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="relative">Contact</span>
+            </motion.a>
+          </div>
 
           {/* Mobile Menu Button */}
           <motion.button
@@ -141,15 +160,30 @@ export const Navbar = () => {
                     </motion.a>
                   ))}
                   <motion.a
-                    href="#contact"
+                    href="/resume.pdf"
+                    download="Kashish_Pandey_Resume.pdf"
                     onClick={() => setIsMobileMenuOpen(false)}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: navLinks.length * 0.05 }}
-                    className="mt-2 px-4 py-3 rounded-xl bg-primary text-primary-foreground text-center font-medium"
+                    className="mt-2 px-4 py-3 rounded-xl border border-amber/30 text-amber text-center font-medium flex items-center justify-center gap-2"
+                  >
+                    <Download className="w-4 h-4" />
+                    Download Resume
+                  </motion.a>
+                  <motion.a
+                    href="#contact"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: (navLinks.length + 1) * 0.05 }}
+                    className="px-4 py-3 rounded-xl bg-primary text-primary-foreground text-center font-medium"
                   >
                     Contact
                   </motion.a>
+                  <div className="flex justify-center pt-2">
+                    <ThemeToggle />
+                  </div>
                 </div>
               </div>
             </motion.div>

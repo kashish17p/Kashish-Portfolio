@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Sparkles } from "lucide-react";
+import { ArrowDown, Sparkles, Download } from "lucide-react";
 
 const profileImage = "https://i.postimg.cc/C1SSwPcV/My-Photo.jpg";
 
@@ -132,6 +132,14 @@ export const Hero = () => {
               <a href="#projects" className="group relative inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-medium overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl">
                 <span className="absolute inset-0 bg-gradient-to-r from-amber to-amber-light opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <span className="relative">View Projects</span>
+              </a>
+              <a 
+                href="/resume.pdf" 
+                download="Kashish_Pandey_Resume.pdf"
+                className="group relative inline-flex items-center gap-2 border-2 border-amber/50 hover:border-amber bg-amber/5 hover:bg-amber/10 text-amber px-8 py-4 rounded-full font-medium backdrop-blur-sm transition-all duration-300 hover:scale-105"
+              >
+                <Download className="w-5 h-5" />
+                Resume
               </a>
               <a href="#contact" className="group relative inline-flex items-center gap-2 border-2 border-primary/20 hover:border-amber text-foreground px-8 py-4 rounded-full font-medium backdrop-blur-sm transition-all duration-300 hover:bg-amber/10">
                 Get in Touch

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import profileImage from "@/assets/profile-kashish.jpg";
 import { ArrowDown, Sparkles } from "lucide-react";
+
+const profileImage = "https://i.postimg.cc/C1SSwPcV/My-Photo.jpg";
 
 export const Hero = () => {
   return (

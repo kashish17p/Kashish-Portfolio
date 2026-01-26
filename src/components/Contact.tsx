@@ -25,7 +25,7 @@ const socialLinks = [
     icon: Linkedin,
     label: "LinkedIn",
     value: "Kashish Pandey",
-    href: "https://linkedin.com/in/kashish-pandey",
+    href: "https://linkedin.com/in/kashish-pandey-957131332",
     color: "from-blue-500/20 to-cyan-500/20",
     iconColor: "text-blue-500",
   },
@@ -164,7 +164,7 @@ export const Contact = () => {
             >
               {[
                 { icon: Github, href: "https://github.com/kashish17p" },
-                { icon: Linkedin, href: "https://linkedin.com/in/kashish-pandey" },
+                { icon: Linkedin, href: "https://linkedin.com/in/kashish-pandey-957131332" },
                 { icon: Mail, href: "mailto:kasp13115@gmail.com" },
               ].map((social, index) => (
                 <motion.a

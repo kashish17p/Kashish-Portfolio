@@ -45,7 +45,7 @@ export const Footer = () => {
           <div className="flex gap-4 mb-8">
             {[
               { icon: Github, href: "https://github.com/kashish17p" },
-              { icon: Linkedin, href: "https://linkedin.com/in/kashish-pandey" },
+              { icon: Linkedin, href: "https://linkedin.com/in/kashish-pandey-957131332" },
               { icon: Mail, href: "mailto:kasp13115@gmail.com" },
             ].map((social, index) => (
               <motion.a

@@ -136,6 +136,17 @@ export const Hero = () => {
               <a 
                 href="/resume.pdf" 
                 download="Kashish_Pandey_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const link = document.createElement('a');
+                  link.href = '/resume.pdf';
+                  link.download = 'Kashish_Pandey_Resume.pdf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
                 className="group relative inline-flex items-center gap-2 border-2 border-amber/50 hover:border-amber bg-amber/5 hover:bg-amber/10 text-amber px-8 py-4 rounded-full font-medium backdrop-blur-sm transition-all duration-300 hover:scale-105"
               >
                 <Download className="w-5 h-5" />

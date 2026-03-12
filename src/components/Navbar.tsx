@@ -171,7 +171,16 @@ export const Navbar = () => {
                   <motion.a
                     href="/resume.pdf"
                     download="Kashish_Pandey_Resume.pdf"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsMobileMenuOpen(false);
+                      const link = document.createElement('a');
+                      link.href = '/resume.pdf';
+                      link.download = 'Kashish_Pandey_Resume.pdf';
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                    }}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: navLinks.length * 0.05 }}

@@ -55,11 +55,27 @@ export const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    toast.success("Message sent successfully! I'll get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
+    try {
+      await emailjs.send(
+        "service_5n2jcb1",
+        "template_a4n9zci",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: "Kashish",
+        },
+        "_Ag6Z0pwCe5Gx9Jnp"
+      );
+      
+      toast.success("Message sent successfully! I'll get back to you soon.");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      toast.error("Failed to send message. Please try again or email me directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (

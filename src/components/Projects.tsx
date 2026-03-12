@@ -103,26 +103,14 @@ export const Projects = () => {
               {/* Card */}
               <div className="relative h-full overflow-hidden rounded-3xl bg-card border border-border/50 hover:border-amber/30 transition-all duration-500">
                 {/* Header gradient */}
-                <div className={`h-40 bg-gradient-to-br ${project.color} relative overflow-hidden`}>
-                  {/* Animated pattern */}
-                  <motion.div 
-                    className="absolute inset-0 opacity-30"
+                <div className="h-40 relative overflow-hidden">
+                  <motion.img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
                     animate={hoveredIndex === index ? { scale: 1.1 } : { scale: 1 }}
                     transition={{ duration: 0.5 }}
-                  >
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:24px_24px]" />
-                  </motion.div>
-                  
-                  {/* Icon */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.span 
-                      className="text-6xl"
-                      animate={hoveredIndex === index ? { scale: 1.2, rotate: 10 } : { scale: 1, rotate: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {project.icon}
-                    </motion.span>
-                  </div>
+                  />
                   
                   {/* Hover Overlay with actions */}
                   <motion.div 

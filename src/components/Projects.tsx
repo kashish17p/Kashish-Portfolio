@@ -2,6 +2,12 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ExternalLink, Github, ArrowUpRight, Folder } from "lucide-react";
+import medibookImg from "@/assets/project-medibook.jpg";
+import sehatsathiImg from "@/assets/project-sehatsathi.jpg";
+import gdgbuImg from "@/assets/project-gdgbu.jpg";
+import evoleImg from "@/assets/project-evole.jpg";
+import unixaImg from "@/assets/project-unixa.jpg";
+import tickterImg from "@/assets/project-tickter.jpg";
 
 const projects = [
   {
@@ -9,48 +15,42 @@ const projects = [
     description: "Doctor appointment booking application with seamless scheduling and user management.",
     role: "Full-Stack Development",
     tags: ["React", "Node.js", "MongoDB"],
-    color: "from-amber/30 to-orange-500/20",
-    icon: "🏥",
+    image: medibookImg,
   },
   {
     title: "SehatSathi",
     description: "AI-powered symptom-based disease level detection with intelligent chatbot assistance.",
     role: "Frontend & AI Integration",
     tags: ["React", "AI/ML", "Healthcare"],
-    color: "from-emerald-500/30 to-green-500/20",
-    icon: "🤖",
+    image: sehatsathiImg,
   },
   {
     title: "GDG-BU Website",
     description: "Official website UI for Google Developer Group Bundelkhand University chapter.",
     role: "UI/UX Design & Development",
     tags: ["UI/UX", "React", "Design"],
-    color: "from-blue-500/30 to-cyan-500/20",
-    icon: "🌐",
+    image: gdgbuImg,
   },
   {
     title: "Evole App",
     description: "Career guidance platform helping students navigate their professional journey.",
     role: "Backend Development",
     tags: ["Node.js", "Express", "APIs"],
-    color: "from-violet-500/30 to-purple-500/20",
-    icon: "🎯",
+    image: evoleImg,
   },
   {
     title: "Unixa",
     description: "Digital platform connecting students and alumni for mentorship and networking.",
     role: "Full-Stack Development",
     tags: ["React", "Node.js", "Community"],
-    color: "from-rose-500/30 to-pink-500/20",
-    icon: "🔗",
+    image: unixaImg,
   },
   {
     title: "Tickter",
     description: "Event ticket booking application with real-time availability and secure payments.",
     role: "Full-Stack Development",
     tags: ["React", "Payments", "Events"],
-    color: "from-orange-500/30 to-amber/20",
-    icon: "🎫",
+    image: tickterImg,
   },
 ];
 
@@ -103,26 +103,14 @@ export const Projects = () => {
               {/* Card */}
               <div className="relative h-full overflow-hidden rounded-3xl bg-card border border-border/50 hover:border-amber/30 transition-all duration-500">
                 {/* Header gradient */}
-                <div className={`h-40 bg-gradient-to-br ${project.color} relative overflow-hidden`}>
-                  {/* Animated pattern */}
-                  <motion.div 
-                    className="absolute inset-0 opacity-30"
+                <div className="h-40 relative overflow-hidden">
+                  <motion.img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
                     animate={hoveredIndex === index ? { scale: 1.1 } : { scale: 1 }}
                     transition={{ duration: 0.5 }}
-                  >
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:24px_24px]" />
-                  </motion.div>
-                  
-                  {/* Icon */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.span 
-                      className="text-6xl"
-                      animate={hoveredIndex === index ? { scale: 1.2, rotate: 10 } : { scale: 1, rotate: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {project.icon}
-                    </motion.span>
-                  </div>
+                  />
                   
                   {/* Hover Overlay with actions */}
                   <motion.div 
